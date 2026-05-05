@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Hoàn thành bản thiết kế UI",
+        "desc": "Sử dụng Glassmorphism cho trang chủ",
+        "date": "2026-05-04",
+        "completed": true
+    },
+    {
+        "id": 2,
+        "title": "Họp team kỹ thuật",
+        "desc": "Thảo luận về tính năng lọc công việc",
+        "date": "2026-05-04",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "title": "Kiểm tra lỗi (Bug fix)",
+        "desc": "Sửa lỗi hiển thị trên mobile",
+        "date": "2026-05-05",
+        "completed": false
+    }
+]

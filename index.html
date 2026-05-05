@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Master Pro - Quản Lý Công Việc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Sidebar Info -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <span>Task Management</span>
+            </div>
+
+            <div class="stats-card">
+                <h3>Thống kê ngày</h3>
+                <div class="chart-container">
+                    <svg viewBox="0 0 36 36" class="circular-chart">
+                        <path class="circle-bg"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="progress-circle" class="circle" stroke-dasharray="0, 100"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <text x="18" y="20.35" class="percentage" id="stat-percent">0%</text>
+                    </svg>
+                </div>
+                <div class="stats-details">
+                    <div class="stat-item">
+                        <span class="label">Hoàn thành</span>
+                        <span class="value" id="stat-done">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Đang chờ</span>
+                        <span class="value" id="stat-pending">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h4>Chọn ngày</h4>
+                <input type="date" id="date-filter" class="date-input">
+            </div>
+
+            <div class="actions-section" style="margin-top: auto;">
+                <button id="export-btn" class="btn-secondary"
+                    style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i class="fas fa-file-export"></i> Xuất dữ liệu JSON
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-info">
+                    <h1 id="current-date-title">Hôm nay, 04 Tháng 5</h1>
+                    <p id="task-summary-text">Bạn có 0 công việc cho ngày này.</p>
+                </div>
+                <button id="open-modal-btn" class="btn-primary">
+                    <i class="fas fa-plus"></i> Thêm Task
+                </button>
+            </header>
+
+            <div class="task-list-container">
+                <div id="empty-state" class="empty-state">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-state-2130362-1800592.png"
+                        alt="Empty">
+                    <p>Tuyệt vời! Không có việc gì cần làm cho ngày này.</p>
+                </div>
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be injected here -->
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Add Task -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Thêm Công Việc Mới</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Tiêu đề</label>
+                    <input type="text" id="task-title" placeholder="Nhập tên công việc..." required>
+                </div>
+                <div class="form-group">
+                    <label for="task-desc">Mô tả (tùy chọn)</label>
+                    <textarea id="task-desc" placeholder="Chi tiết công việc..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-date">Ngày thực hiện</label>
+                    <input type="date" id="task-date" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary close-btn-action">Hủy</button>
+                    <button type="submit" class="btn-primary">Lưu công việc</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
